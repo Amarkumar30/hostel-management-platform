@@ -66,6 +66,7 @@ ANTHROPIC_API_KEY=<optional if chatbot is enabled>
 CLOUDINARY_CLOUD_NAME=<optional if uploads are enabled>
 CLOUDINARY_API_KEY=<optional if uploads are enabled>
 CLOUDINARY_API_SECRET=<optional if uploads are enabled>
+SERVER_PUBLIC_URL=https://api.yourdomain.com
 ```
 
 ### Important Render notes
@@ -73,6 +74,7 @@ CLOUDINARY_API_SECRET=<optional if uploads are enabled>
 - `npm run start:render` runs `prisma migrate deploy` before starting the Nest app.
 - The backend health endpoint is `GET /api/v1/health`.
 - If you use the free Render plan, the first request after inactivity may be slow because of cold starts.
+- If Cloudinary keys are missing, uploads fall back to local `/uploads` files served by the API.
 
 ### Seed the production database
 

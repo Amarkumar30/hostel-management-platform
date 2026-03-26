@@ -2,8 +2,11 @@ import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
+import { static as expressStatic } from 'express';
+import { existsSync, mkdirSync } from 'fs';
 import helmet from 'helmet';
 import { NestFactory } from '@nestjs/core';
+import { join } from 'path';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import {
@@ -17,6 +20,13 @@ async function bootstrap() {
   app.use(cookieParser());
   app.use(helmet());
   app.use(compression());
+
+  const uploadsDir = join(process.cwd(), 'uploads');
+  if (!existsSync(uploadsDir)) {
+    mkdirSync(uploadsDir, { recursive: true });
+  }
+  app.use('/uploads', expressStatic(uploadsDir));
+
   app.enableCors({
     origin: (origin, callback) => {
       if (isAllowedOrigin(origin)) {
