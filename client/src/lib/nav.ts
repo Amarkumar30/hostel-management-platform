@@ -13,6 +13,7 @@ import {
   Wrench,
   CheckSquare,
   Stethoscope,
+  UtensilsCrossed,
 } from 'lucide-react'
 
 export type NavItem = { to: string; icon: LucideIcon; label: string }
@@ -20,6 +21,7 @@ export type NavItem = { to: string; icon: LucideIcon; label: string }
 const studentNav: NavItem[] = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/my-room', icon: Home, label: 'My Room' },
+  { to: '/mess', icon: UtensilsCrossed, label: 'Mess' },
   { to: '/leaves', icon: CheckSquare, label: 'Apply for Leave' },
   { to: '/leaves/history', icon: CalendarDays, label: 'My Leaves' },
   { to: '/complaints', icon: AlertCircle, label: 'My Complaints' },

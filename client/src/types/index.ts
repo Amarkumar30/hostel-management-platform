@@ -138,6 +138,74 @@ export type PrescriptionStatus = 'ISSUED' | 'DISPENSED' | 'CANCELLED'
 export type InsuranceClaimStatus = 'SUBMITTED' | 'UNDER_REVIEW' | 'APPROVED' | 'REJECTED' | 'PAID'
 export type MedicalDocumentStatus = 'SUBMITTED' | 'VERIFIED' | 'REJECTED'
 
+// Mess types
+export type MessOrderType = 'MONTHLY' | 'DAILY'
+export type MessOrderStatus = 'CREATED' | 'PAID' | 'FAILED'
+export type MessFeedbackType = 'COMPLAINT' | 'SUGGESTION' | 'APPRECIATION'
+
+export interface MessOrder {
+  id: string
+  userId?: string
+  type: MessOrderType
+  status: MessOrderStatus
+  amountPaise: number
+  currency: string
+  periodStart: string
+  periodEnd: string
+  razorpayOrderId: string
+  razorpayPaymentId?: string | null
+  paidAt?: string | null
+  createdAt: string
+}
+
+export interface MessSummary {
+  fees: { monthlyFeePaise: number; dailyFeePaise: number; currency: string }
+  access: { monthlyActive: boolean; dailyActiveToday: boolean }
+  recentOrders: MessOrder[]
+  period: {
+    monthStart: string
+    monthEnd: string
+    todayStart: string
+    todayEnd: string
+  }
+}
+
+export interface MessOrderCreateResponse {
+  keyId: string
+  order: {
+    id: string
+    type: MessOrderType
+    amountPaise: number
+    currency: string
+    razorpayOrderId: string
+    periodStart: string
+    periodEnd: string
+  }
+}
+
+export interface VerifyMessOrderInput {
+  razorpayOrderId: string
+  razorpayPaymentId: string
+  razorpaySignature: string
+}
+
+export interface MessFeedback {
+  id: string
+  userId: string
+  type: MessFeedbackType
+  rating?: number | null
+  title: string
+  message: string
+  createdAt: string
+}
+
+export interface CreateMessFeedbackInput {
+  type?: MessFeedbackType
+  rating?: number
+  title: string
+  message: string
+}
+
 export interface CounsellorProfile {
   id: string
   userId: string

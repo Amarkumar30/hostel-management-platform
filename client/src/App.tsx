@@ -15,6 +15,7 @@ import MyRoomPage from '@/pages/student/MyRoomPage'
 import ComplaintsPage from '@/pages/student/ComplaintsPage'
 import AnonymousComplaintPage from '@/pages/student/AnonymousComplaintPage'
 import TrackComplaintPage from '@/pages/student/TrackComplaintPage'
+import MessPage from '@/pages/student/MessPage'
 import AdminDashboard from '@/pages/admin/AdminDashboard'
 import RoomManagement from '@/pages/admin/RoomManagement'
 import ComplaintsAdmin from '@/pages/admin/ComplaintsAdmin'
@@ -120,6 +121,14 @@ export default function App() {
                 element={
                   <ProtectedRoute roles={['STUDENT']}>
                     <MyRoomPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="mess"
+                element={
+                  <ProtectedRoute roles={['STUDENT']}>
+                    <MessPage />
                   </ProtectedRoute>
                 }
               />

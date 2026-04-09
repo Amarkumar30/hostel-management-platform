@@ -10,6 +10,7 @@ import { ComplaintsModule } from './modules/complaints/complaints.module';
 import { CounsellingModule } from './modules/counselling/counselling.module';
 import { CampusHealthModule } from './modules/campus-health/campus-health.module';
 import { LeaveModule } from './modules/leave/leave.module';
+import { MessModule } from './modules/mess/mess.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { MaintenanceModule } from './modules/maintenance/maintenance.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
@@ -47,6 +48,7 @@ import { PrismaModule } from './prisma/prisma.module';
     CounsellingModule,
     CampusHealthModule,
     LeaveModule,
+    MessModule,
   ],
   controllers: [AppController],
   providers: [],

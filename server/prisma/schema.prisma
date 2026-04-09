@@ -140,6 +140,23 @@ enum MedicalDocumentStatus {
   REJECTED
 }
 
+enum MessOrderType {
+  MONTHLY
+  DAILY
+}
+
+enum MessOrderStatus {
+  CREATED
+  PAID
+  FAILED
+}
+
+enum MessFeedbackType {
+  COMPLAINT
+  SUGGESTION
+  APPRECIATION
+}
+
 model User {
   id              String         @id @default(uuid())
   name            String
@@ -184,6 +201,8 @@ model User {
   medicalLeaveRequests MedicalLeaveRequest[] @relation("MedicalLeaveStudent")
   verifiedMedicalLeaveRequests MedicalLeaveRequest[] @relation("MedicalLeaveVerifiedBy")
   leaves Leave[]
+  messOrders MessOrder[]
+  messFeedback MessFeedback[]
   @@map("users")
 }
 
@@ -625,4 +644,43 @@ model Leave {
   @@index([status])
   @@index([fromDate])
   @@map("leaves")
+}
+
+model MessOrder {
+  id                String         @id @default(cuid())
+  userId             String
+  user               User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type               MessOrderType
+  status             MessOrderStatus @default(CREATED)
+  amountPaise        Int
+  currency           String         @default("INR")
+  periodStart        DateTime
+  periodEnd          DateTime
+
+  razorpayOrderId    String         @unique
+  razorpayPaymentId  String?
+  razorpaySignature  String?
+  paidAt             DateTime?
+
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@index([type, periodStart])
+  @@map("mess_orders")
+}
+
+model MessFeedback {
+  id          String           @id @default(cuid())
+  userId      String
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        MessFeedbackType @default(SUGGESTION)
+  rating      Int?
+  title       String
+  message     String
+  createdAt   DateTime         @default(now())
+
+  @@index([userId, createdAt])
+  @@map("mess_feedback")
 }
