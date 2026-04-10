@@ -1,25 +1,19 @@
-import React from 'react';
-
-const PausePage: React.FC = () => {
+export default function PausePage() {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      backgroundColor: '#1c1c1c',
-      color: '#e0e0e0',
-      fontFamily: 'sans-serif',
-      textAlign: 'center'
-    }}>
-      <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Project on Pause</h1>
-      <p style={{ fontSize: '1.5rem', fontStyle: 'italic', maxWidth: '600px' }}>
-        "The two most powerful warriors are patience and time."
-      </p>
-      <p style={{ fontSize: '1rem', marginTop: '0.5rem', color: '#a0a0a0' }}>- Leo Tolstoy</p>
-    </div>
-  );
-};
+    <div className="min-h-screen px-6 flex items-center justify-center">
+      <div className="card w-full max-w-2xl p-8 md:p-10 text-center">
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Project on Pause
+        </h1>
 
-export default PausePage;
+        <p className="mt-4 text-lg md:text-xl italic leading-relaxed">
+          “The two most powerful warriors are patience and time.”
+        </p>
+
+        <p className="mt-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
+          — Leo Tolstoy
+        </p>
+      </div>
+    </div>
+  )
+}
