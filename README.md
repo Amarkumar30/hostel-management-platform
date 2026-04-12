@@ -33,7 +33,7 @@ If you cannot sign in, the main reason is:
 - but the backend API on `http://localhost:3001/api/v1` is not reachable
 - the backend cannot start correctly until PostgreSQL is running on `localhost:5432`
 
-Earlier checks showed:
+Earlier checks  showed:
 
 - frontend: reachable
 - backend API: not reachable
