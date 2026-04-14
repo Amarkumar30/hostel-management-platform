@@ -388,7 +388,7 @@ If login fails, check:
 - Cloudinary upload needs valid account credentials
 - Gemini chatbot needs a valid `GEMINI_API_KEY` (and ideally pre-indexed KB embeddings)
 
-## Quick Troubleshooting
+## Quick Troubleshooting .
 
 ### Frontend opens but login fails
 
