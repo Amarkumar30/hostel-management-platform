@@ -98,7 +98,7 @@ hostel-platform/
 - View complaint activity
 - Update complaint statuses
 
-### Admin
+### Admin .
 
 - Dashboard overview
 - Room management
