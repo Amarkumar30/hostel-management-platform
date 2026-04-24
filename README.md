@@ -33,7 +33,7 @@ If you cannot sign in, the main reason is:
 - but the backend API on `http://localhost:3001/api/v1` is not reachable
 - the backend cannot start correctly until PostgreSQL is running on `localhost:5432`
 
-Earlier checks  showed:
+Earlier checks showed:
 
 - frontend: reachable
 - backend API: not reachable
@@ -98,7 +98,7 @@ hostel-platform/
 - View complaint activity
 - Update complaint statuses
 
-### Admin .
+### Admin
 
 - Dashboard overview
 - Room management
@@ -388,7 +388,7 @@ If login fails, check:
 - Cloudinary upload needs valid account credentials
 - Gemini chatbot needs a valid `GEMINI_API_KEY` (and ideally pre-indexed KB embeddings)
 
-## Quick Troubleshooting .
+## Quick Troubleshooting
 
 ### Frontend opens but login fails
 
