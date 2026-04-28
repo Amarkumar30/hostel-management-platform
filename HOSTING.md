@@ -165,8 +165,7 @@ Check:
 
 ### Refresh token works locally but not in production
 
-Check:
-
+Check;
 - frontend and backend are on subdomains of the same custom domain
 - both use `https`
 - Render `CLIENT_URL` includes the exact frontend origin
