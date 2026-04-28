@@ -294,7 +294,7 @@ Frontend login flow:
 - refresh token is stored in an HTTP-only cookie
 - subsequent API requests use `Authorization: Bearer <token>`
 
-If login fails, check:
+If login fails, check
 
 - backend is reachable on port `3001`
 - database is running
