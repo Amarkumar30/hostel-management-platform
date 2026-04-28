@@ -68,9 +68,7 @@ GEMINI_CHAT_MODEL=gemini-1.5-flash
 GEMINI_EMBED_MODEL=
 GEMINI_API_BASE_URL=https://generativelanguage.googleapis.com
 ANTHROPIC_API_KEY=<optional if image validation is enabled>
-CLOUDINARY_CLOUD_NAME=<optional if uploads are enabled>
-CLOUDINARY_API_KEY=<optional if uploads are enabled>
-CLOUDINARY_API_SECRET=<optional if uploads are enabled>
+
 SERVER_PUBLIC_URL=https://api.yourdomain.com
 ```
 
